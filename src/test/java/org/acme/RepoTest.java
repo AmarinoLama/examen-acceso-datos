@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.acme.domain.MagicalItem;
 import org.acme.domain.Order;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -223,7 +225,7 @@ public class RepoTest {
          * Implementa el metodo createItem() del repositorio
          * que crea un item en la base de datos.
          */
-        /*@Test
+        @Test
         @Transactional
         public void test_create_item() {
             Assertions.assertThat(repo).isNotNull();
@@ -235,7 +237,7 @@ public class RepoTest {
             Assertions.assertThat(relic.getName()).isEqualTo("Guardapelo");
             Assertions.assertThat(relic.getQuality()).isEqualTo(100);
             Assertions.assertThat(relic.getType()).isEqualTo("MagicalItem");
-        }*/
+        }
 
         /**
          * Implementa el metodo createItems() del repositorio
