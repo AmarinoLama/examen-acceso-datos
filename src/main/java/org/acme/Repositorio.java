@@ -40,7 +40,7 @@ public class Repositorio {
                 .toList();
     }
 
-    /*public Optional<Order> placeOrder(String nombreWizard, String nombreItem) {
+    public Optional<Order> placeOrder(String nombreWizard, String nombreItem) {
         Optional<Wizard> wizard = Wizard.findByIdOptional(nombreWizard);
         Optional<MagicalItem> item = loadItem(nombreItem);
         if (!wizard.get().getRazaMago().equals("MUDBLOOD")) {
@@ -48,14 +48,11 @@ public class Repositorio {
             order.persist();
         }
         List<Order> ordenes = Order.listAll();
-        List<Order> listaFiltrada = new ArrayList<>();
-        for (Order order : ordenes) {
-            if (order.getItem().getName().equals(nombreItem) && order.getWizard().getName().equals(nombreWizard)) {
-                listaFiltrada.add(order);
-            }
-        }
+        List<Order> listaFiltrada = ordenes.stream()
+                .filter(order -> order.getItem().getName().equals(nombreItem) && order.getWizard().getName().equals(nombreWizard))
+                .toList();
         return !listaFiltrada.isEmpty() ? Order.findByIdOptional(listaFiltrada.get(0).getId()) : Optional.empty();
-    }*/
+    }
 
     public void createItem(String nombreItem, int quality, String tipoItem) {
         MagicalItem item = new MagicalItem(nombreItem, quality, tipoItem);
@@ -69,7 +66,14 @@ public class Repositorio {
         }
     }
 
-    /*public void deleteItem(MagicalItem item) {
-        item.delete();
-    }*/
+    public void deleteItem (MagicalItem item) {
+        List<MagicalItem> listaItems = MagicalItem.listAll();
+        List<MagicalItem> listaFiltrada = listaItems.stream()
+                                                    .filter(newItem -> newItem.getName().equals(item.getName()) && newItem.getQuality() == item.getQuality() && newItem.getType().equals(item.getType()))
+                                                    .toList();
+        if (!listaFiltrada.isEmpty()) {
+            MagicalItem itemToDelete = listaFiltrada.get(0);
+            itemToDelete.delete();
+        }
+    }
 }
