@@ -2,6 +2,7 @@ package org.acme;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.acme.domain.MagicalItem;
+import org.acme.domain.Order;
 import org.acme.domain.Wizard;
 
 import java.util.ArrayList;
@@ -40,5 +41,27 @@ public class Repositorio {
         return listaItems.stream()
                 .filter(item -> item.getName().equals(nombreItem))
                 .toList();
+    }
+
+    /*public Optional<Order> placeOrder(String nombreWizard, String nombreItem) {
+        Optional<Wizard> wizard = Wizard.findByIdOptional(nombreWizard);
+        Optional<MagicalItem> item = loadItem(nombreItem);
+        if (!wizard.get().getRazaMago().equals("MUDBLOOD")) {
+            Order order = new Order(wizard.get(), item.get());
+            order.persist();
+        }
+        List<Order> ordenes = Order.listAll();
+        List<Order> listaFiltrada = new ArrayList<>();
+        for (Order order : ordenes) {
+            if (order.getItem().getName().equals(nombreItem) && order.getWizard().getName().equals(nombreWizard)) {
+                listaFiltrada.add(order);
+            }
+        }
+        return !listaFiltrada.isEmpty() ? Order.findByIdOptional(listaFiltrada.get(0).getId()) : Optional.empty();
+    }*/
+
+    public void createItem(String nombreItem, int quality, String tipoItem) {
+        MagicalItem item = new MagicalItem(nombreItem, quality, tipoItem);
+        item.persist();
     }
 }
