@@ -64,4 +64,11 @@ public class Repositorio {
         MagicalItem item = new MagicalItem(nombreItem, quality, tipoItem);
         item.persist();
     }
+
+    public void createItems(List<MagicalItem> items) {
+        for (MagicalItem item : items) {
+            createItem(item.getName(), item.getQuality(), item.getType());
+            item.persist();
+        }
+    }
 }
