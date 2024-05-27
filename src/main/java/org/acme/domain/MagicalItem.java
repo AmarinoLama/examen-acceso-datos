@@ -18,4 +18,39 @@ public class MagicalItem extends PanacheEntityBase {
 
     @Column(name="item_type")
     public String tipoItem = "";
+
+    public MagicalItem() {
+    }
+
+    public long getIdItem() {
+        return idItem;
+    }
+
+    public void setIdItem(long idItem) {
+        this.idItem = idItem;
+    }
+
+    public String getNombreItem() {
+        return nombreItem;
+    }
+
+    public void setNombreItem(String nombreItem) {
+        this.nombreItem = nombreItem;
+    }
+
+    public int getCalidadItem() {
+        return calidadItem;
+    }
+
+    public void setCalidadItem(int calidadItem) {
+        this.calidadItem = calidadItem;
+    }
+
+    public String getTipoItem() {
+        return tipoItem;
+    }
+
+    public void setTipoItem(String tipoItem) {
+        this.tipoItem = tipoItem;
+    }
 }
