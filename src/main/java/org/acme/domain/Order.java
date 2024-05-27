@@ -22,7 +22,7 @@ public class Order extends PanacheEntityBase {
     public Order() {
     }
 
-    public long getIdOrden() {
+    public long getId() {
         return idOrden;
     }
 

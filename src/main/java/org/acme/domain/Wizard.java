@@ -21,7 +21,7 @@ public class Wizard extends PanacheEntityBase {
     public Wizard() {
     }
 
-    public String getNombreWizard() {
+    public String getName() {
         return nombreWizard;
     }
 
