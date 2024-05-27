@@ -11,6 +11,8 @@ import org.acme.domain.Wizard;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
@@ -168,7 +170,7 @@ public class RepoTest {
          *
          * Ojo que el nombre del item no es la clave primaria.
          */
-        /*@Test
+        @Test
         public void test_load_items() {
             Assertions.assertThat(repo).isNotNull();
 
@@ -179,7 +181,7 @@ public class RepoTest {
 
             // test no existe el item
             Assertions.assertThat(repo.loadItems("Varita de Sauco")).isEmpty();
-        }*/
+        }
 
 
         /**
