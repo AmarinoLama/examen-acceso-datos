@@ -125,7 +125,7 @@ public class RepoTest {
          * El metodo devueve el primer item cuyo nombre
          * coincida con el especificado.
          */
-        /*@Test
+        @Test
         public void test_load_item() {
             Assertions.assertThat(repo).isNotNull();
             MagicalItem item = repo.loadItem("Aged Brie").get();
@@ -135,7 +135,7 @@ public class RepoTest {
 
             // test no existe el item
             Assertions.assertThat(repo.loadItem("Varita de Sauco")).isEmpty();
-        }*/
+        }
 
         /**
          * Implementa el metodo loadItem(name, quality, type)
