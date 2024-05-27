@@ -103,7 +103,7 @@ public class RepoTest {
          * que devuelve un Optional del mago/a con el nombre indicado
          */
 
-        /*@Test
+        @Test
         public void test_load_wizard() {
             Assertions.assertThat(repo).isNotNull();
             Wizard squib = repo.loadWizard("Hermione").get();
@@ -114,7 +114,7 @@ public class RepoTest {
 
             // test no existe el mago
             Assertions.assertThat(repo.loadWizard("Severus Snape")).isEmpty();
-        }*/
+        }
 
         /**
          * Implementa el metodo loadItem() del repositorio
