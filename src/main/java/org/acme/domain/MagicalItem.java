@@ -4,7 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name="t_items")
+@Table(name="t_items")
 public class MagicalItem extends PanacheEntityBase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="item_id")
@@ -22,12 +22,19 @@ public class MagicalItem extends PanacheEntityBase {
     public MagicalItem() {
     }
 
-    public long getIdItem() {
+    public MagicalItem(long idItem) {
+        this.idItem = idItem;
+    }
+
+    public long getId() {
         return idItem;
     }
 
-    public void setIdItem(long idItem) {
+    public MagicalItem(long idItem, String nombreItem, int calidadItem, String tipoItem) {
         this.idItem = idItem;
+        this.nombreItem = nombreItem;
+        this.calidadItem = calidadItem;
+        this.tipoItem = tipoItem;
     }
 
     public String getNombreItem() {

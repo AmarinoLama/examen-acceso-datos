@@ -4,7 +4,9 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+import org.acme.domain.MagicalItem;
 import org.junit.jupiter.api.Test;
+import org.assertj.core.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
