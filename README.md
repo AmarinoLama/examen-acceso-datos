@@ -1,4 +1,14 @@
-# examen-acceso-datos
+Examen de Programación realizado por Amán Lama Vilariño el cual consiste en trabajar con una BBDD la cual contiene una serie de Wizards y MagicItems
+y las relaciones que tienen ambas tablas mediante el método Active Directory en una app
+de quarkus.
+
+El projecto está dividido en el package domain, que contiene las clases principales como MagicalItem (
+contiene la conexión a su correspondiente tabla), Wizard que contiene una lógica parecida a la clase anterior
+, Razas (clase de tipo enumerada con las razas de los Wizard) y Order que es la clase donde se almacenan las
+relaciones. Por otra parte está la clase Repositorio que es donde se almacenan todas las interacciones de dichas clases,
+desde cargar items simples o múltiples hasta borrar datos de la BBDD. Finalmente, está la clase ServiceItem que es la APPIREST.
+
+# Examen acceso datos
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
