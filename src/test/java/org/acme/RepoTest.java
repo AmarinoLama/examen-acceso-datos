@@ -151,7 +151,7 @@ public class RepoTest {
          * y no cualquier otro item de la base de datos
          * que tenga sólo el mismo nombre.
          */
-        /*@Test
+        @Test
         public void test_load_item_equal() {
             Assertions.assertThat(repo).isNotNull();
             MagicalItem brie = new MagicalItem("Aged Brie", 0, "MagicalItem");
@@ -163,7 +163,7 @@ public class RepoTest {
             // test no existe el item
             brie = new MagicalItem("Aged Brie", 1000, "MagicalItem");
             Assertions.assertThat(repo.loadItem(brie)).isEmpty();
-        }*/
+        }
 
         /**
          * Implementa el metodo loadItems() del repositorio
