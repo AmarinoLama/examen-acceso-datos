@@ -48,7 +48,7 @@ public class MagicalItem extends PanacheEntityBase {
         this.calidadItem = calidadItem;
     }
 
-    public String getTipoItem() {
+    public String getType() {
         return tipoItem;
     }
 
