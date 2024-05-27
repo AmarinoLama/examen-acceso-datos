@@ -30,7 +30,7 @@ public class MagicalItem extends PanacheEntityBase {
         return idItem;
     }
 
-    public String getNombreItem() {
+    public String getName() {
         return nombreItem;
     }
 
@@ -38,7 +38,7 @@ public class MagicalItem extends PanacheEntityBase {
         this.nombreItem = nombreItem;
     }
 
-    public int getCalidadItem() {
+    public int getQuality() {
         return calidadItem;
     }
 
