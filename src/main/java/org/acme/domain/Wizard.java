@@ -9,7 +9,7 @@ public class Wizard extends PanacheEntityBase {
 
     @Id
     @Column(name = "wizard_name")
-    public String nombreWizard = "";
+    public String name = "";
 
     @Column(name = "wizard_dexterity")
     public int destrezaWizarda = 0;
@@ -22,11 +22,11 @@ public class Wizard extends PanacheEntityBase {
     }
 
     public String getName() {
-        return nombreWizard;
+        return name;
     }
 
-    public void setNombreWizard(String nombreWizard) {
-        this.nombreWizard = nombreWizard;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getDestrezaWizarda() {
@@ -48,7 +48,7 @@ public class Wizard extends PanacheEntityBase {
     @Override
     public String toString() {
         return "Wizard{" +
-                "nombreWizard='" + nombreWizard + '\'' +
+                "nombreWizard='" + name + '\'' +
                 ", destrezaWizarda=" + destrezaWizarda +
                 ", razaMago=" + razaMago +
                 '}';
