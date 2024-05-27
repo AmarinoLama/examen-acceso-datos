@@ -25,16 +25,13 @@ public class Repositorio {
         return !listaFiltrada.isEmpty() ? MagicalItem.findByIdOptional(listaFiltrada.get(0).getId()) : Optional.empty();
     }
 
-    /*public Optional<MagicalItem> loadItem(MagicalItem item) {
+    public Optional<MagicalItem> loadItem(MagicalItem item) {
         List<MagicalItem> listaItems = MagicalItem.listAll();
-        List<MagicalItem> listaFiltrada = new ArrayList<>();
-        for (MagicalItem newItem : listaItems) {
-            if (newItem.getName() == item.getName() && newItem.getQuality() == item.getQuality() && newItem.getTipoItem() == item.getTipoItem()) {
-                listaFiltrada.add(newItem);
-            }
-        }
+        List<MagicalItem> listaFiltrada = listaItems.stream()
+                                                    .filter(newItem -> newItem.getName().equals(item.getName()) && newItem.getQuality() == item.getQuality() && newItem.getType().equals(item.getType()))
+                                                    .toList();
         return !listaFiltrada.isEmpty() ? MagicalItem.findByIdOptional(listaFiltrada.get(0).getId()) : Optional.empty();
-    }*/
+    }
 
     public List<MagicalItem> loadItems(String nombreItem) {
         List<MagicalItem> listaItems = MagicalItem.listAll();
@@ -71,4 +68,8 @@ public class Repositorio {
             item.persist();
         }
     }
+
+    /*public void deleteItem(MagicalItem item) {
+        item.delete();
+    }*/
 }
