@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import static org.acme.domain.Razas.MUDBLOOD;
+
 @ApplicationScoped
 public class Repositorio {
     public Optional<Wizard> loadWizard(String nombreWizard) {
@@ -40,18 +42,23 @@ public class Repositorio {
                 .toList();
     }
 
+    /**
+     * Implementa el metodo placeOrder(wizard, item) del repositorio
+     * que genera un pedido de un item para un mago determinado.
+     * El pedido se guarda en la base de datos.
+     *
+     * Los magos/as mudblood NO pueden comprar un item.
+     */
+
     public Optional<Order> placeOrder(String nombreWizard, String nombreItem) {
         Optional<Wizard> wizard = Wizard.findByIdOptional(nombreWizard);
         Optional<MagicalItem> item = loadItem(nombreItem);
-        if (!wizard.get().getRazaMago().equals("MUDBLOOD")) {
+        if (wizard.isPresent() && item.isPresent() && !wizard.get().getRazaMago().equals(MUDBLOOD)) {
             Order order = new Order(wizard.get(), item.get());
             order.persist();
+            return Optional.of(order);
         }
-        List<Order> ordenes = Order.listAll();
-        List<Order> listaFiltrada = ordenes.stream()
-                .filter(order -> order.getItem().getName().equals(nombreItem) && order.getWizard().getName().equals(nombreWizard))
-                .toList();
-        return !listaFiltrada.isEmpty() ? Order.findByIdOptional(listaFiltrada.get(0).getId()) : Optional.empty();
+        return Optional.empty();
     }
 
     public void createItem(String nombreItem, int quality, String tipoItem) {
@@ -72,8 +79,8 @@ public class Repositorio {
                                                     .filter(newItem -> newItem.getName().equals(item.getName()) && newItem.getQuality() == item.getQuality() && newItem.getType().equals(item.getType()))
                                                     .toList();
         if (!listaFiltrada.isEmpty()) {
-            MagicalItem itemToDelete = listaFiltrada.get(0);
-            itemToDelete.delete();
+            MagicalItem itemBorrar = listaFiltrada.get(0);
+            itemBorrar.delete();
         }
     }
 }
