@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.acme.domain.MagicalItem;
+import org.acme.domain.Order;
 import org.acme.domain.Wizard;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
@@ -74,13 +75,13 @@ public class RepoTest {
          * El id de esta clase ha de seguir una estrategia
          * Identity
          */
-       /* @Test
+       @Test
         public void test_mapping_order() {
             Order pedido = em.find(Order.class, 1L);
             Assertions.assertThat(pedido).isNotNull();
             Assertions.assertThat(pedido.toString()).contains("Marius Black"); //ord_wizard
             Assertions.assertThat(pedido.toString()).containsIgnoringCase("Elixir of the Mongoose"); //ord_item
-        }*/
+        }
 
         /**
          * Crea una clase llamada Repositorio
