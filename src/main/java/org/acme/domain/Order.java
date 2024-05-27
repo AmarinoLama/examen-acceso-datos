@@ -22,6 +22,11 @@ public class Order extends PanacheEntityBase {
     public Order() {
     }
 
+    public Order(Wizard wizard, MagicalItem item) {
+        this.wizard = wizard;
+        this.item = item;
+    }
+
     public long getId() {
         return idOrden;
     }
