@@ -1,10 +1,7 @@
 package org.acme.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="t_wizards")
@@ -18,6 +15,42 @@ public class Wizard extends PanacheEntityBase {
     public int destrezaWizarda = 0;
 
     @Column(name = "wizard_person")
-    public Razas razaMago = "";
+    @Enumerated(value = EnumType.STRING)
+    public Razas razaMago = null;
 
+    public Wizard() {
+    }
+
+    public String getNombreWizard() {
+        return nombreWizard;
+    }
+
+    public void setNombreWizard(String nombreWizard) {
+        this.nombreWizard = nombreWizard;
+    }
+
+    public int getDestrezaWizarda() {
+        return destrezaWizarda;
+    }
+
+    public void setDestrezaWizarda(int destrezaWizarda) {
+        this.destrezaWizarda = destrezaWizarda;
+    }
+
+    public Razas getRazaMago() {
+        return razaMago;
+    }
+
+    public void setRazaMago(Razas razaMago) {
+        this.razaMago = razaMago;
+    }
+
+    @Override
+    public String toString() {
+        return "Wizard{" +
+                "nombreWizard='" + nombreWizard + '\'' +
+                ", destrezaWizarda=" + destrezaWizarda +
+                ", razaMago=" + razaMago +
+                '}';
+    }
 }
