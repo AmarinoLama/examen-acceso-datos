@@ -22,8 +22,10 @@ public class MagicalItem extends PanacheEntityBase {
     public MagicalItem() {
     }
 
-    public MagicalItem(long idItem) {
-        this.idItem = idItem;
+    public MagicalItem(String nombreItem, int calidadItem, String tipoItem) {
+        this.nombreItem = nombreItem;
+        this.calidadItem = calidadItem;
+        this.tipoItem = tipoItem;
     }
 
     public long getId() {
