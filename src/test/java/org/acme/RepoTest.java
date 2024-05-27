@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.acme.domain.MagicalItem;
+import org.acme.domain.Wizard;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
@@ -58,14 +59,14 @@ public class RepoTest {
          * a una tabla una propiedad Enum es
          * 	@Enumerated(EnumType.STRING)
          */
-        /*@Test
+        @Test
         public void test_mapping_wizard() {
             Wizard squib = em.find(Wizard.class, "Marius Black");
             Assertions.assertThat(squib).isNotNull();
             Assertions.assertThat(squib.toString()).contains("Marius Black");
             Assertions.assertThat(squib.toString()).contains("15"); //wizard_dexterity
             Assertions.assertThat(squib.toString()).contains("SQUIB");  //tipo enumerado
-        }*/
+        }
 
         /**
          * Completa la definicion y el mapping
