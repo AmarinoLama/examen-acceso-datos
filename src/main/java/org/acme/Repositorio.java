@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import static org.acme.domain.Razas.MUDBLOOD;
 
@@ -35,20 +36,16 @@ public class Repositorio {
         return !listaFiltrada.isEmpty() ? MagicalItem.findByIdOptional(listaFiltrada.get(0).getId()) : Optional.empty();
     }
 
+    /* he intentado de todo pero por algún motivo este método me devuelve entidades repetidas */
+
     public List<MagicalItem> loadItems(String nombreItem) {
         List<MagicalItem> listaItems = MagicalItem.listAll();
-        return listaItems.stream()
+        List<MagicalItem> listaFiltrada = listaItems.stream()
                 .filter(item -> item.getName().equals(nombreItem))
-                .toList();
+                .distinct()
+                .collect(Collectors.toList());
+        return listaFiltrada;
     }
-
-    /**
-     * Implementa el metodo placeOrder(wizard, item) del repositorio
-     * que genera un pedido de un item para un mago determinado.
-     * El pedido se guarda en la base de datos.
-     *
-     * Los magos/as mudblood NO pueden comprar un item.
-     */
 
     public Optional<Order> placeOrder(String nombreWizard, String nombreItem) {
         Optional<Wizard> wizard = Wizard.findByIdOptional(nombreWizard);

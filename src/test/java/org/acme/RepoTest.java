@@ -15,8 +15,6 @@ import org.assertj.core.api.Assertions;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @QuarkusTest
 public class RepoTest {
         @PersistenceContext
@@ -270,6 +268,8 @@ public class RepoTest {
             Assertions.assertThat(backstage.getName()).isEqualTo("Backstage passes to a TAFKAL80ETC concert");
             Assertions.assertThat(backstage.getQuality()).isEqualTo(15);
             Assertions.assertThat(backstage.getType()).isEqualTo("MagicalItem");
+
+            /* he intentado de todo pero por algún motivo este método me devuelve entidades repetidas */
 
             /*// los sulfuras se han guardado
             List<MagicalItem> manos = repo.loadItems("Sulfuras, Hand of Ragnaros");
