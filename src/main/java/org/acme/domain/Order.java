@@ -1,16 +1,21 @@
 package org.acme.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="t_orders")
 public class Order extends PanacheEntityBase {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ord_id")
     public long idOrden = 0L;
+
+    @OneToOne
+    @JoinColumn(name="ord_wizard")
+    public Wizard wizard = null;
+
+    @OneToOne
+    @JoinColumn(name="ord_item")
+    public MagicalItem item = null;
 }
