@@ -60,4 +60,14 @@ public class MagicalItem extends PanacheEntityBase {
     public void setTipoItem(String tipoItem) {
         this.tipoItem = tipoItem;
     }
+
+    @Override
+    public String toString() {
+        return "MagicalItem{" +
+                "idItem=" + idItem +
+                ", nombreItem='" + nombreItem + '\'' +
+                ", calidadItem=" + calidadItem +
+                ", tipoItem='" + tipoItem + '\'' +
+                '}';
+    }
 }
