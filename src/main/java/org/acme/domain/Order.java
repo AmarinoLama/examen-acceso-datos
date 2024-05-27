@@ -18,4 +18,40 @@ public class Order extends PanacheEntityBase {
     @OneToOne
     @JoinColumn(name="ord_item")
     public MagicalItem item = null;
+
+    public Order() {
+    }
+
+    public long getIdOrden() {
+        return idOrden;
+    }
+
+    public void setIdOrden(long idOrden) {
+        this.idOrden = idOrden;
+    }
+
+    public Wizard getWizard() {
+        return wizard;
+    }
+
+    public void setWizard(Wizard wizard) {
+        this.wizard = wizard;
+    }
+
+    public MagicalItem getItem() {
+        return item;
+    }
+
+    public void setItem(MagicalItem item) {
+        this.item = item;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "idOrden=" + idOrden +
+                ", wizard=" + wizard +
+                ", item=" + item +
+                '}';
+    }
 }
