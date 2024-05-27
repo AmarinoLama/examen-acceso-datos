@@ -1,6 +1,7 @@
 package org.acme;
 
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -17,8 +18,8 @@ public class RepoTest {
         @PersistenceContext
         EntityManager em;
 
-        // @Inject
-        // Repositorio repo;
+        @Inject
+        Repositorio repo;
 
         // @Inject
         // ServiceItem servicio;
@@ -92,10 +93,10 @@ public class RepoTest {
          * @Inject
          * Repositorio repo;
          */
-        /*@Test
+        @Test
         public void test_repositorio_existe() {
             Assertions.assertThat(repo).isNotNull();
-        }*/
+        }
 
         /**
          * Implementa el metodo loadWizard del repositorio
